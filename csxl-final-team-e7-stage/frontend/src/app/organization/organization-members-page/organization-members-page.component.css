@@ -1,0 +1,18 @@
+.grid {
+    display: grid;
+    place-items: start;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20px auto;
+    gap: 10px 24px;
+    margin: 24px;
+}
+
+.member-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.search-bar {
+    margin: 24px;
+}

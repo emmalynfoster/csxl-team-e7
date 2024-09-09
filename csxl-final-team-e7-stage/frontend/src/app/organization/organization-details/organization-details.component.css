@@ -1,0 +1,26 @@
+/** 
+* organization-details.component.css 
+* 
+* The organization details page should include basic information about the 
+* organization, the organization members, and the organization's events.
+*
+*/
+
+.event-listing-container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-side-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  align-self: flex-end;
+}

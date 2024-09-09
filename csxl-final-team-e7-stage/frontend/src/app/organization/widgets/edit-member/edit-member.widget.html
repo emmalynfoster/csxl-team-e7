@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <div class="title">
+      <mat-card-title>Edit Members</mat-card-title>
+    </div>
+  </mat-card-header>
+  <div
+    *ngFor="let member of organizationMembers.slice(0, 3)"
+    class="member-grid">
+    <img
+      mat-card-avatar
+      src="https://avatars.githubusercontent.com/u/69768943?v=4"
+      class="member-avatar" />
+    <p class="member-name">{{ member.first_name }}</p>
+  </div>
+  <div class="edit-button-container">
+    <button
+      mat-stroked-button
+      [routerLink]="['/organizations', organization!.slug, 'members']"
+      class="button">
+      <p class="button-text">Edit</p>
+    </button>
+  </div>
+</mat-card>

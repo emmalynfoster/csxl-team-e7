@@ -1,0 +1,22 @@
+<form [formGroup]="organizationForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-form-field
+      hintLabel="Max 500 characters"
+      apperance="outline"
+      color="accent">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        placeholder="Enter description here."
+        formControlName="description"
+        name="description" />
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      class="save-button"
+      type="submit"
+      [disabled]="organizationForm.invalid">
+      Save
+    </button>
+  </mat-card>
+</form>

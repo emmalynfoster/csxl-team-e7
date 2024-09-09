@@ -1,0 +1,10 @@
+<a
+  [routerLink]="['/organizations', organization!.slug, 'members']"
+  class="custom-link">
+  <mat-card class="custom-card">
+    <div class="container">
+      <div class="dot" *ngIf="pendingMembers.length > 0"></div>
+      <p>{{ pendingMembers.length }} Pending Requests</p>
+    </div>
+  </mat-card>
+</a>

@@ -1,0 +1,35 @@
+.title{
+    padding-bottom: 10px;
+}
+
+.member-grid {
+    display: grid;
+    place-content: stretch;
+    place-items: left;
+    grid-template-columns: 40px 1fr auto; /* h 1fr auto */
+    grid-template-rows: 40px; /* h */
+    column-gap: 10px;
+    align-items:flex-start;
+    padding-left: 10px;
+    margin-bottom: 8px;
+}
+
+.button{
+    width:100px;
+    height:40px;
+}
+
+.member-name{
+}
+
+.button-text{
+    color: red;
+}
+
+.edit-button-container{
+    display: flex;
+    align-content: left;
+    justify-content: right;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}

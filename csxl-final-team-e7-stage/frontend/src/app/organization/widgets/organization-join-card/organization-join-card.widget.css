@@ -1,0 +1,21 @@
+.organization-header{
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.bottom-container{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    place-items: center;
+    padding: 10px;
+}
+
+.edit-desc-button{
+    grid-column: 1 / span 1;
+    color: #939393 !important;
+    pointer-events: none;
+}
+
+.join-button{
+    grid-column: 3 / span 1;
+}

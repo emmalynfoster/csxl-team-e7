@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title class="title">{{
+    member?.user?.first_name + ' ' + member?.user?.last_name
+  }}</mat-card-title>
+
+  <form [formGroup]="memberEditForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Role</mat-label>
+      <mat-select
+        matListItemTitle
+        formControlName="role"
+        name="role"
+        class="select-role">
+        <mat-option *ngFor="let option of roleOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="" formControlName="title" name="title" />
+    </mat-form-field>
+
+    <button
+      mat-stroked-button
+      class="save-button"
+      type="submit"
+      [disabled]="memberEditForm.invalid">
+      Update
+    </button>
+  </form>
+</mat-card>

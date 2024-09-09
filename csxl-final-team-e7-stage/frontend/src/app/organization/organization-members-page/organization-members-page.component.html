@@ -1,0 +1,22 @@
+<div class="search-bar">
+  <search-bar [(searchBarQuery)]="searchBarQuery" />
+</div>
+
+<div class="grid" appearance="outlined">
+  <mat-card-title>Members</mat-card-title>
+  <mat-card-title>Pending Requests</mat-card-title>
+  <mat-card class="member-container" appearance="outlined">
+    <organization-member-card
+      *ngFor="let member of members | memberFilter: searchBarQuery"
+      [member]="member"
+      [buttonsTxt]="['EDIT', 'DELETE']"
+      (buttonsPressed)="editdelete($event)" />
+  </mat-card>
+  <mat-card class="member-container" appearance="outlined">
+    <organization-member-card
+      *ngFor="let member of pending_members | memberFilter: searchBarQuery"
+      [member]="member"
+      [buttonsTxt]="['ACCEPT', 'DENY']"
+      (buttonsPressed)="acceptdeny($event)" />
+  </mat-card>
+</div>

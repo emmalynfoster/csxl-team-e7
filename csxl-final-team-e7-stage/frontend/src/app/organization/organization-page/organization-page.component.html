@@ -1,0 +1,59 @@
+<!-- HTML Structure of Organizations Page -->
+
+<mat-tab-group *ngIf="this.profile; else unauthenticated">
+  <mat-tab label="All Organizations">
+    <div class="page-container">
+      <!-- Search Bar -->
+      <search-bar [(searchBarQuery)]="searchBarQuery" class="search-bar" />
+
+      <!-- Organizations -->
+      <div class="organization-cards">
+        <!-- Display card for each organization, potentially filtered based on the search query. -->
+        <organization-card
+          class="card"
+          [organization]="organization"
+          [profile]="profile"
+          [profilePermissions]="permValues"
+          *ngFor="
+            let organization of organizations
+              | organizationFilter: searchBarQuery
+          " />
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="My Organizations">
+    <div class="page-container">
+      <!-- Organizations -->
+      <div class="my-organization-cards">
+        <!-- Display card for each organization, potentially filtered based on the search query. -->
+        <my-organization-card
+          class="card"
+          [organization]="organization"
+          [profile]="this.profile"
+          *ngFor="
+            let organization of (myOrganizations | async)!
+              | organizationFilter: searchBarQuery;
+          " />
+      </div></div
+  ></mat-tab>
+</mat-tab-group>
+
+<ng-template #unauthenticated>
+  <div class="page-container">
+    <!-- Search Bar -->
+    <search-bar [(searchBarQuery)]="searchBarQuery" />
+
+    <!-- Organizations -->
+    <div class="organization-cards">
+      <!-- Display card for each organization, potentially filtered based on the search query. -->
+      <organization-card
+        class="card"
+        [organization]="organization"
+        [profile]="profile"
+        [profilePermissions]="permValues"
+        *ngFor="
+          let organization of organizations | organizationFilter: searchBarQuery
+        " />
+    </div>
+  </div>
+</ng-template>

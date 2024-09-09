@@ -1,0 +1,34 @@
+.member-card {
+    max-width: none;
+    margin: 0;
+}
+
+.member-grid {
+    display: grid;
+    place-content: stretch;
+    place-items: center;
+    grid-template-columns: 40px 1fr auto; /* h 1fr auto */
+    grid-template-rows: 40px; /* h */
+    column-gap: 10px;
+}
+
+.member-avatar {
+    height: 70%;
+    width: 70%;
+    margin: auto;
+}
+
+.member-name {
+    justify-self: start;
+    font-size: 16px; /* .4h */
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    height: 100%;
+    width: 100%;
+    font-size: 16px; /* .4h */
+}

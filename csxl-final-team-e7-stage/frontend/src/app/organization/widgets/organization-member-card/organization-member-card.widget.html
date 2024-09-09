@@ -1,0 +1,25 @@
+<mat-card class="member-card" *ngIf="member">
+  <div class="member-grid">
+    <!-- Member Avatar -->
+    <img
+      mat-card-avatar
+      class="member-avatar"
+      src="https://avatars.githubusercontent.com/u/69768943?v=4" />
+    <!-- src="{{ member.github_avatar }}" /> -->
+
+    <!-- Member Name -->
+    <mat-card-title class="member-name">
+      {{ member.first_name + ' ' + member.last_name }}
+    </mat-card-title>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <button
+        mat-button
+        *ngFor="let buttonTxt of buttonsTxt; index as i"
+        (click)="buttonsPressed.emit([member, i])">
+        {{ buttonTxt }}
+      </button>
+    </div>
+  </div>
+</mat-card>

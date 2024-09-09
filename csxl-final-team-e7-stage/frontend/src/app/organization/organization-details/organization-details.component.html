@@ -1,0 +1,51 @@
+<!-- HTML Structure of Organization Details Page -->
+
+<!-- <div class="organization-grid">
+
+    Organization Information Card
+<div class="organization-card-container">
+
+</div>
+</div> -->
+
+<organization-not-found-card
+  *ngIf="organization === undefined; else eventDetails" />
+
+<ng-template #eventDetails>
+  <div class="flex-container">
+    <div>
+      <organization-details-info-card
+        [organization]="organization"
+        [profile]="profile" />
+      <organization-join-card
+        [organization]="organization"
+        [profile]="this.profile"
+        [organizationMember]="organizationMember" />
+    </div>
+    <div class="right-side-container">
+      <organization-join-status-info-card
+        [organization]="organization"
+        [profile]="this.profile"
+        class="status"
+        *ngIf="isLeader$ | async" />
+
+      <edit-member-card
+        [organizationMembers]="(organizationMembers | async)!"
+        [organization]="organization"
+        [profile]="this.profile"
+        *ngIf="isLeader$ | async" />
+      <pending-request-card
+        [organization]="organization"
+        *ngIf="isLeader$ | async" />
+    </div>
+  </div>
+  <div class="event-listing-container">
+    <event-list
+      [eventsPerDay]="eventsPerDay"
+      [organization]="organization"
+      [selectedEvent]="null"
+      [disableLinks]="false"
+      [showHeader]="true"
+      [showCreateButton]="(eventCreationPermission$ | async)!" />
+  </div>
+</ng-template>

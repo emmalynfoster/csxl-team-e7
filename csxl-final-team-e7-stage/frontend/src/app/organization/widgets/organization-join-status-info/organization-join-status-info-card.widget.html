@@ -1,0 +1,27 @@
+<form [formGroup]="organizationStatusForm" (ngSubmit)="onSubmit()">
+  <mat-card class="card">
+    <mat-form-field apperance="outline" color="accent" class="status-field">
+      <mat-label>Status</mat-label>
+      <mat-select matListItemTitle formControlName="status" name="status">
+        <mat-option *ngFor="let option of statusOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field apperance="outline" color="accent" class="link-field">
+      <mat-label>Link</mat-label>
+      <input
+        matInput
+        placeholder="Enter link here."
+        formControlName="link"
+        name="link" />
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      class="save-button"
+      type="submit"
+      [disabled]="organizationStatusForm.invalid">
+      Update
+    </button>
+  </mat-card>
+</form>

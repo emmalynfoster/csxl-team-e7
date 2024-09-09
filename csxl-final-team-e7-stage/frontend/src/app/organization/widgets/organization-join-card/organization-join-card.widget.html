@@ -1,0 +1,29 @@
+<mat-card
+  class="organization-card"
+  *ngIf="organization !== undefined"
+  appearance="outlined">
+  <mat-card-header class="organization-header">
+    <p class="organization-description">{{ organization.join_description }}</p>
+  </mat-card-header>
+
+  <div class="bottom-container" *ngIf="this.profile">
+    <div>
+      <a
+        [routerLink]="[
+          '/organizations',
+          organization!.slug,
+          'edit-description'
+        ]"
+        *ngIf="isLeader$ | async">
+        <button mat-stroked-button class="edit-desc-button">Edit</button>
+      </a>
+    </div>
+    <button
+      mat-stroked-button
+      class="join-button"
+      (click)="leavejoin()"
+      [disabled]="disable | async">
+      {{ text | async }}
+    </button>
+  </div>
+</mat-card>
